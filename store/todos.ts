@@ -84,7 +84,8 @@ const myTodosArray = types
             self.todoList = JSON.parse(JSON.stringify(dummyArr));
             localStorage.setItem("TODOSLIST", JSON.stringify(dummyArr));
           
-      },
+        },
+        //it is run when we refersh a app it is just like lifecycle method
       afterCreate() {
         self.todoList = nextLocalStorage()?.getItem("TODOSLIST")
           ? JSON.parse(localStorage.getItem("TODOSLIST")!)

@@ -9,7 +9,6 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { CgAddR } from "react-icons/cg";
 
 const Todos = ({ store }: any) => {
-
   //modal css
   const customStyles = {
     content: {
@@ -25,15 +24,15 @@ const Todos = ({ store }: any) => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [todo, setTodo] = React.useState("");
   const [editId, seteditId] = React.useState("");
-//modal open function
+  //modal open function
   function openModal() {
     setIsOpen(true);
   }
-//modal close function
+  //modal close function
   function closeModal() {
     setIsOpen(false);
   }
-// all todo crud function
+  // all todo crud function
   function deleteTodo(id: string) {
     todoStore.deleteTodo(id);
   }
@@ -50,13 +49,14 @@ const Todos = ({ store }: any) => {
   return (
     <div className="mt-[1.4rem]">
       <div className="font-bold text-center text-3xl">ALL TODOS</div>
-{/*  show incomplete todos*/}
+      {/*  show incomplete todos*/}
       <div className="flex gap-5 flex-wrap mt-[1.4rem] justify-center px-[2rem] items-center">
         {store?.map((Toodos: todoInterface, idx: number) => {
           if (Toodos.completed === false) {
             return (
               <div
-                className="flex flex-col gap-2 bg-white rounded-md basis-[22%] p-[0.7rem]  h-[40vh] overflow-y-auto overflow-x-auto overflow-scroll "
+                className="flex flex-col gap-2 bg-white rounded-md md:basis-[30%] basis-[100%] xl:basis-[22%] p-[0.7rem]  h-[23vh] overflow-y-auto overflow-x-auto overflow-scroll 
+                sm:basis-[45%] sm:h-[30vh] md:h-[30vh]"
                 key={Toodos.id}
               >
                 <div className="flex justify-between px-[0.5rem] ">
@@ -81,7 +81,8 @@ const Todos = ({ store }: any) => {
                   />
                 </div>
                 <div
-                  className="text-black whitespace-normal  h-[30vh] overflow-y-auto overflow-x-auto overflow-scroll "
+                  className="text-black whitespace-normal  h-[10vh] overflow-y-auto overflow-x-auto overflow-scroll sm:h-[20vh] 
+                  md:h-[20vh]"
                   id="todoScrollbar"
                 >
                   {Toodos?.task?.todo}
@@ -147,7 +148,8 @@ const Todos = ({ store }: any) => {
           if (Toodos.completed === true) {
             return (
               <div
-                className="flex flex-col gap-2 bg-white rounded-md basis-[22%] p-[0.7rem]   h-[40vh] overflow-y-auto overflow-x-auto overflow-scroll"
+                className="flex flex-col gap-2 bg-white rounded-md  md:basis-[30%] basis-[100%] xl:basis-[22%] p-[0.7rem]  h-[23vh] overflow-y-auto overflow-x-auto overflow-scroll 
+                sm:basis-[45%] sm:h-[30vh] md:h-[30vh]"
                 id="todoScrollbar"
                 key={Toodos.id}
               >
@@ -165,7 +167,8 @@ const Todos = ({ store }: any) => {
                   <BiSolidEdit color="black" />
                 </div>
                 <div
-                  className="text-black whitespace-normal h-[30vh] overflow-y-auto overflow-x-auto overflow-scroll "
+                  className="text-black whitespace-normal h-[10vh] overflow-y-auto overflow-x-auto overflow-scroll sm:h-[20vh] 
+                  md:h-[20vh] "
                   id="todoScrollbar"
                 >
                   {Toodos.task.todo}
