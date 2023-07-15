@@ -4,13 +4,14 @@ import { types } from "mobx-state-tree";
 export const isBrowser = (): boolean => {
   return typeof window !== "undefined";
 };
-
+// make sure localstorage does not throw error
 export const nextLocalStorage = (): Storage | void => {
   if (isBrowser()) {
     return window.localStorage;
   }
 };
 
+//todo type decide
 export interface todoInterface {
   id: string;
   task: {
@@ -20,6 +21,7 @@ export interface todoInterface {
   completed: boolean;
 }
 
+//bascially we decide localstorage function
 declare namespace NodeJS {
   interface Global {
     localStorage: {
@@ -29,6 +31,7 @@ declare namespace NodeJS {
   }
 }
 
+// decide out todo model
 export const TodoModdel = types.model("AllTodos", {
   id: types.string,
   task: types.union(
@@ -40,6 +43,7 @@ export const TodoModdel = types.model("AllTodos", {
   completed: types.boolean,
 });
 
+ // todo array  of object and decide action
 const myTodosArray = types
   .model({
     todoList: types.array(TodoModdel),
@@ -89,6 +93,7 @@ const myTodosArray = types
     };
   });
 
+  //create mst store
 const AllTodos = myTodosArray.create({
   todoList: [],
 });

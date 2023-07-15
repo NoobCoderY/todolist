@@ -18,8 +18,10 @@ export function AddTodo() {
   const [todo, setTodo] = useState("");
   const [title, settitle] = useState("");
 
+  //for add todo function
   async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // for get unique id helper function
     const _id = genUniqueId();
     const newTodo = {
       id: _id,
