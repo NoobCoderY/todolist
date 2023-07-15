@@ -21,3 +21,8 @@
     background-color: darkgrey;
     outline: 1px solid slategrey;
   }
+
+  #todoScrollbar::-webkit-scrollbar {
+    width: 1em;
+    color: black;
+  }

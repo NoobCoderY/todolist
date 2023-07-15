@@ -3,8 +3,6 @@ import { FormEvent, useState } from "react";
 import { CgAddR } from "react-icons/cg";
 import genUniqueId from "@/helper/getUniqueId";
 import todoStore from "../../store/todos"
-import { nextLocalStorage } from "../../store/todos";
-import {TodoModdel} from "../../store/todos"
 
 // for use localstore property bcz by default it is not type
 declare namespace NodeJS {
@@ -39,6 +37,8 @@ export function AddTodo() {
       "TODOSLIST",
       JSON.stringify([...getLocalStorageArray, newTodo])
     );
+    setTodo("")
+    settitle("")
   }
 
   return (

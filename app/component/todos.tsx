@@ -55,7 +55,7 @@ const Todos = ({ store }: any) => {
           {
             return (
               <div
-              className="flex flex-col gap-2 bg-white rounded-md basis-[22%] p-[0.7rem]  min-h-[20vh] overflow-scroll"
+              className="flex flex-col gap-2 bg-white rounded-md basis-[22%] p-[0.7rem]  h-[40vh] overflow-y-auto overflow-x-auto overflow-scroll " 
               key={Toodos.id}
             >
               <div className="flex justify-between px-[0.5rem] ">
@@ -79,7 +79,7 @@ const Todos = ({ store }: any) => {
                   className="cursor-pointer"
                 />
               </div>
-              <div className="text-black whitespace-normal">
+              <div className="text-black whitespace-normal  h-[30vh] overflow-y-auto overflow-x-auto overflow-scroll " id="todoScrollbar">
                 {Toodos?.task?.todo}
               </div>
               <div className=" text-black flex items-center gap-3">
@@ -147,7 +147,7 @@ const Todos = ({ store }: any) => {
           if (Toodos.completed === true)
           {
             return (
-              <div className="flex flex-col gap-2 bg-white rounded-md basis-[22%] p-[0.7rem] min-h-[20vh] overflow-scroll" key={Toodos.id}>
+              <div className="flex flex-col gap-2 bg-white rounded-md basis-[22%] p-[0.7rem]   h-[40vh] overflow-y-auto overflow-x-auto overflow-scroll" id="todoScrollbar" key={Toodos.id}>
               <div className="flex justify-between px-[0.5rem] ">
                   <div className="w-[60%] text-black font-bold">{Toodos.task.title}</div>
                   <AiOutlineDelete
@@ -159,7 +159,7 @@ const Todos = ({ store }: any) => {
                 />
                 <BiSolidEdit color="black" />
               </div>
-              <div className="text-black whitespace-normal">
+              <div className="text-black whitespace-normal h-[30vh] overflow-y-auto overflow-x-auto overflow-scroll " id="todoScrollbar">
                {Toodos.task.todo}
               </div>
               <div className=" text-black flex items-center gap-3">
